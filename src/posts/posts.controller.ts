@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Request, Body, UseGuards, Param, Delete  } from '@nestjs/common';
+import { Controller, Get, Post, Query, Request, Body, UseGuards, Param, Delete  } from '@nestjs/common';
 import { PostsService } from './posts.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { RolesGuard } from '../auth/roles.guard';
@@ -20,7 +20,7 @@ export class PostsController {
   }
 
   @Get()
-  findAll() {
-    return this.postsService.findAll();
+  findAll(@Query() query) {
+    return this.postsService.findAll(query);
   }
 }

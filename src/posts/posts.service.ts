@@ -10,8 +10,8 @@ export class PostsService {
     return this.postModel.create(createPostDto);
   }
 
-  async findAll(): Promise<Post[]> {
-    return this.postModel.findAll();
+  async findAll(filters = {}): Promise<Post[]> {
+    return this.postModel.findAll({ where: filters, order: [['createdAt', 'DESC']] });
   }
 
   async findOne(id: string): Promise<Post> {
