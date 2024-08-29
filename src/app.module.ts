@@ -4,6 +4,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AuthModule } from './auth/auth.module';
 import { NotificationsModule } from './notifications/notifications.module';
+import { EventsModule } from './events/events.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { NotificationsModule } from './notifications/notifications.module';
     }),
     MongooseModule.forRoot(process.env.MONGODB_URI),
     NotificationsModule,
+    EventsModule,
     AuthModule,
   ],
 })
