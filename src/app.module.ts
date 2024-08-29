@@ -5,6 +5,11 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AuthModule } from './auth/auth.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { EventsModule } from './events/events.module';
+import { PostsModule } from './posts/posts.module';
+import { CommentsModule } from './comments/comments.module';
+import { LikesModule } from './likes/likes.module';
+import { FollowsModule } from './follows/follows.module';
+import { FeedsModule } from './feads/feeds.module';
 
 @Module({
   imports: [
@@ -25,6 +30,11 @@ import { EventsModule } from './events/events.module';
     NotificationsModule,
     EventsModule,
     AuthModule,
+    PostsModule,
+    CommentsModule,
+    LikesModule,
+    FollowsModule,
+    FeedsModule,
   ],
 })
 export class AppModule {}
