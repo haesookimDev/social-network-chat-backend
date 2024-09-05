@@ -1,6 +1,7 @@
 import { Table, Column, Model, DataType, ForeignKey, BelongsTo } from 'sequelize-typescript';
 import { Post } from '../posts/post.model';
 import { User } from '../users/user.model';
+import { ApiProperty } from '@nestjs/swagger';
 
 @Table({ tableName: 'comments' })
 export class Comment extends Model<Comment> {
@@ -8,6 +9,7 @@ export class Comment extends Model<Comment> {
     type: DataType.TEXT,
     allowNull: false,
   })
+  @ApiProperty({description: 'content'})
   content: string;
 
   @ForeignKey(() => Post)
@@ -15,6 +17,7 @@ export class Comment extends Model<Comment> {
     type: DataType.INTEGER,
     allowNull: false,
   })
+  @ApiProperty({description: 'postId'})
   postId: number;
 
   @ForeignKey(() => User)
@@ -22,6 +25,7 @@ export class Comment extends Model<Comment> {
     type: DataType.INTEGER,
     allowNull: false,
   })
+  @ApiProperty({description: 'userId'})
   userId: number;
 
   @BelongsTo(() => Post)
